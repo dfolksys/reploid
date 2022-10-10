@@ -3,6 +3,7 @@ package com.survivalcoding.mywebbrowser
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.ContextMenu
 import android.view.Menu
 import android.view.MenuItem
@@ -21,7 +22,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-
+        val dbc = DBConnector("13.125.1.234:27017", "dwkang", "ovov12")
+        Log.d("DBConnector", dbc.hello())
+        dbc.connect()
         // 웹뷰 기본 설정
         binding.webView.apply {
             settings.javaScriptEnabled = true
